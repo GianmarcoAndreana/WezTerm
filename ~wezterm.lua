@@ -11,10 +11,9 @@ end)
 local config = wezterm.config_builder()
 
 -- Improved vim detection function
+-- Improved vim detection function
 local function is_vim(pane)
-    local process_info = pane:get_foreground_process_info()
-    local process_name = process_info and process_info.name
-    return process_name == "nvim" or process_name == "vim"
+    return pane:get_user_vars().IS_NVIM == "true"
 end
 
 -- Enhanced split navigation function
